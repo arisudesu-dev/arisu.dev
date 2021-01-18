@@ -1,0 +1,20 @@
+name: Build and deploy
+
+on:
+  workflow_dispatch:
+  push: { branches: master }
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - run: |
+          eval $(ssh-agent -s)
+          echo "${{ secrets.DEPLOY_KEY }}" | ssh-add -
+          rsync -e 'ssh -o StrictHostKeyChecking=no' -avz --delete public/ ${{ secrets.DEPLOY_USERHOST }}:${{ secrets.DEPLOY_PATH }}/

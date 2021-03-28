@@ -11,10 +11,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: recursive
 
       - run: |
           eval $(ssh-agent -s)
           echo "${{ secrets.DEPLOY_KEY }}" | ssh-add -
-          rsync -e 'ssh -o StrictHostKeyChecking=no' -avz --delete public/ ${{ secrets.DEPLOY_USERHOST }}:${{ secrets.DEPLOY_PATH }}/
+          test ! -d ~/.ssh && mkdir ~/.ssh
+          chmod 700 ~/.ssh
+          cat >> ~/.ssh/known_hosts <<< '${{ secrets.DEPLOY_FINGERPRINT }}'
+          
+          rsync -avzi --delete --delete-excluded \
+            public/ ${{ secrets.DEPLOY_USERHOST }}:${{ secrets.DEPLOY_PATH }}/

@@ -1,0 +1,119 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+/* оформление */
+#chalkboard {
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+}
+
+#chalkboard td {
+	padding: 0;
+}
+
+/* мета */
+.left, .right { width: 22px; }
+
+.top, .bot { height: 23px; }
+
+.border, .corner {
+	padding: 0;
+	background-repeat: repeat;
+}
+
+/* фон */
+.canvas {
+	background-image: url('board.png');
+	background-repeat: repeat;
+	background-color: #006860;
+	position: relative;
+}
+
+#board {
+	background-image: url('board.png');
+	background-repeat: repeat;
+	background-color: #006860;
+	vertical-align: middle;
+}
+
+.controls {
+	position: relative;
+	margin-top: -24px;
+}
+
+.colors {
+	float: left;
+}
+
+.actions {
+	float: right;
+}
+
+.controls a {
+	border: 1px solid #111;
+	display: block;
+	float: left;
+	height: 20px;
+	margin: 1px;
+}
+
+.colors a {
+	text-indent: -9999px;
+	width: 20px;
+}
+
+.actions a {
+	background: #FFFFFF;
+	color: black;
+	font: 14px/20px sans-serif;
+	padding: 0 5px;
+	text-decoration: none;
+}
+
+/* уголки */
+.corner.top.left {
+	background-image: url('bc.png');
+	background-position: left top;
+}
+
+.corner.top.right {
+	background-image: url('bc.png');
+	background-position: right top;
+}
+
+.corner.bot.left {
+	background-image: url('bc.png');
+	background-position: left bottom;
+}
+
+.corner.bot.right {
+	background-image: url('bc.png');
+	background-position: right bottom;
+}
+
+
+/* боковые */
+.border.top {
+	background-image: url('bh.png');
+	background-position: left top;
+}
+
+.border.bot {
+	background-image: url('bh.png');
+	background-position: left bottom;
+}
+
+.border.left {
+	background-image: url('bv.png');
+	background-position: left top;
+}
+
+.border.right {
+	background-image: url('bv.png');
+	background-position: right top;
+}

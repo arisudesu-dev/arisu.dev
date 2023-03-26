@@ -1,119 +1,80 @@
+* {
+	box-sizing: border-box;
+}
+
 html, body {
-	height: 100%;
+	background-color: #000;
 	margin: 0;
 	padding: 0;
+	height: 100%;
 	width: 100%;
+	overflow: hidden;
 }
 
-/* оформление */
-#chalkboard {
-	border-collapse: collapse;
+.frame {
 	width: 100%;
 	height: 100%;
-}
-
-#chalkboard td {
-	padding: 0;
-}
-
-/* мета */
-.left, .right { width: 22px; }
-
-.top, .bot { height: 23px; }
-
-.border, .corner {
-	padding: 0;
-	background-repeat: repeat;
-}
-
-/* фон */
-.canvas {
-	background-image: url('board.png');
-	background-repeat: repeat;
-	background-color: #006860;
+	border-color: #FFF;
+	border-style: solid;
+	border-width: 23px 22px 23px 22px;
+	border-image: url(frame.png) 23 22 23 22 repeat;
 	position: relative;
-}
-
-#board {
-	background-image: url('board.png');
+	background-image: url(board.png);
 	background-repeat: repeat;
 	background-color: #006860;
-	vertical-align: middle;
+}
+
+.board.erasing {
+	cursor: url('eraser.png') 15 15, crosshair;
 }
 
 .controls {
-	position: relative;
-	margin-top: -24px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	pointer-events: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.colors, .actions {
+	pointer-events: initial;
+	flex: 0 1 auto;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .colors {
-	float: left;
-}
-
-.actions {
-	float: right;
+	margin-right: auto;
 }
 
 .controls a {
-	border: 1px solid #111;
 	display: block;
-	float: left;
-	height: 20px;
+	border: 1px solid #111;
 	margin: 1px;
 }
 
 .colors a {
-	text-indent: -9999px;
-	width: 20px;
+	width: 22px;
+	height: 22px;
+	font-size: 0;
 }
 
+.colors a.color-0 { background-color: #F0F0F0; }
+.colors a.color-1 { background-color: #FF7F7F; }
+.colors a.color-2 { background-color: #FFB27F; }
+.colors a.color-3 { background-color: #FFE97F; }
+.colors a.color-4 { background-color: #7FFF8E; }
+.colors a.color-5 { background-color: #7FC9FF; }
+.colors a.color-6 { background-color: #D67FFF; }
+.colors a.color-7 { background-color: #FF7FB6; }
+
 .actions a {
-	background: #FFFFFF;
-	color: black;
+	background: #FFF;
+	color: #000;
 	font: 14px/20px sans-serif;
 	padding: 0 5px;
 	text-decoration: none;
 }
 
-/* уголки */
-.corner.top.left {
-	background-image: url('bc.png');
-	background-position: left top;
-}
-
-.corner.top.right {
-	background-image: url('bc.png');
-	background-position: right top;
-}
-
-.corner.bot.left {
-	background-image: url('bc.png');
-	background-position: left bottom;
-}
-
-.corner.bot.right {
-	background-image: url('bc.png');
-	background-position: right bottom;
-}
-
-
-/* боковые */
-.border.top {
-	background-image: url('bh.png');
-	background-position: left top;
-}
-
-.border.bot {
-	background-image: url('bh.png');
-	background-position: left bottom;
-}
-
-.border.left {
-	background-image: url('bv.png');
-	background-position: left top;
-}
-
-.border.right {
-	background-image: url('bv.png');
-	background-position: right top;
-}
+.actions a.action-clear { color: #F00; }

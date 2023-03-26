@@ -1,49 +1,35 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>HTML5 Chalkboard</title>
-		<link type="text/css" rel="stylesheet" href="style.css"/>
-		<script type="text/javascript" src="chalkboard.js"></script>
-	</head>
 
-	<body>
-		<table id="chalkboard">
-			<tr>
-				<td class="corner top left">
-				<td class="border top">
-				<td class="corner top right">
-			</tr>
-			
-			<tr>
-				<td class="border left">
-				<td class="canvas"><canvas id="board" onmousedown="return false;"></canvas>
-					<div class="controls">
-						<div class="colors">
-							<a href="#" onclick="setColor('#F0F0F0'); return false;" style="background: #F0F0F0;">White</a>
-							<a href="#" onclick="setColor('#FF7F7F'); return false;" style="background: #FF7F7F;">Red</a>
-							<a href="#" onclick="setColor('#FFB27F'); return false;" style="background: #FFB27F;">Peach</a>
-							<a href="#" onclick="setColor('#FFE97F'); return false;" style="background: #FFE97F;">Yellow</a>
-							<a href="#" onclick="setColor('#7FFF8E'); return false;" style="background: #7FFF8E;">Green</a>
-							<a href="#" onclick="setColor('#7FC9FF'); return false;" style="background: #7FC9FF;">Blue</a>
-							<a href="#" onclick="setColor('#D67FFF'); return false;" style="background: #D67FFF;">Purple</a>
-							<a href="#" onclick="setColor('#FF7FB6'); return false;" style="background: #FF7FB6;">Pink</a>
-							<a href="#" onclick="setEraser();">Тряпка</a>
-						</div>
-						<div class="actions">
-							<a href="#" onclick="saveImage(); return false;">Сохранить</a>
-							<a href="#" onclick="clearAll(); return false;" style="color: red;">Сброс</a>
-						</div>
-					</div>
-				</td>
-				<td class="border right">
-			</tr>
-			
-			<tr>
-				<td class="corner bot left">
-				<td class="border bot">
-				<td class="corner bot right">
-			</tr>
-		</table>
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<title>arisu.dev:/chalkboard</title>
+
+	<link href="style.css" rel="stylesheet">
+	<script src="chalkboard.js"></script>
+</head>
+
+<body>
+	<div id="frame" class="frame">
+		<canvas id="board" class="board" onmousedown="return false;"></canvas>
+		<div class="controls">
+			<div class="colors">
+				<a href="#" class="color-0" onclick="setColor(0); return false;">White</a>
+				<a href="#" class="color-1" onclick="setColor(1); return false;">Red</a>
+				<a href="#" class="color-2" onclick="setColor(2); return false;">Peach</a>
+				<a href="#" class="color-3" onclick="setColor(3); return false;">Yellow</a>
+				<a href="#" class="color-4" onclick="setColor(4); return false;">Green</a>
+				<a href="#" class="color-5" onclick="setColor(5); return false;">Blue</a>
+				<a href="#" class="color-6" onclick="setColor(6); return false;">Purple</a>
+				<a href="#" class="color-7" onclick="setColor(7); return false;">Pink</a>
+				<a href="#" onclick="setEraser(); return false;">Тряпка</a>
+			</div>
+			<div class="actions">
+				<a href="#" class="action-save" onclick="saveImage(); return false;">Save</a>
+				<a href="#" class="action-clear" onclick="clearAll(); return false;">Clear</a>
+			</div>
+		</div>
+	</div>
+</body>
+
 </html>

@@ -15,12 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install mkdocs
-        run: pip install mkdocs-material
-
-      - name: Build wiki from source
-        run: cd wiki && mkdocs build -d ../public/wiki
-
       - name: Set up ssh
         run: |
           eval $(ssh-agent -s)
